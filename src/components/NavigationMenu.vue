@@ -121,8 +121,12 @@ export default {
   color: white;
   font-size: small;
   font-weight: 600;
+  transition: 0.5s  ease-in-out;
 }
-
+.nav__auth:hover {
+  background-color: rgb(255, 115, 0);
+  color: white;
+}
 /* Dropdown */
 .nav__dropdown {
   position: relative;
