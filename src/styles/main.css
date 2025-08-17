@@ -1,0 +1,15 @@
+@import './styles/variables.css';
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.u-mb-16 { margin-bottom: 16px; }
+.u-mt-16 { margin-top: 16px; }

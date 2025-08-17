@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #f59e0b;
+  --background-color: #ffffff;
+  --text-color: #111827;
+  --border-radius: 8px;
+}
+
+[data-theme="dark"] {
+  --background-color: #1f2937;
+  --text-color: #f9fafb;
+  --primary-color: #6366f1;
+}
