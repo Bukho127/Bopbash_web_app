@@ -2,6 +2,7 @@
   <div class="landing-page">
     <NavigationMenu />
     <ThemeToggle />
+   
 
     <section class="hero">
       <h1 class="hero__title">Turn Social Data Into Smarter Decisions</h1>
@@ -34,6 +35,7 @@
     <section class="carousel-section">
       <ImageCarousel :slides="carouselSlides" />
     </section>
+    <Footer/>
   </div>
 </template>
 
@@ -41,6 +43,7 @@
 import NavigationMenu from "../components/NavigationMenu.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
 import ImageCarousel from "../components/ImageCarousel.vue";
+import Footer from '../components/FooterPage.vue';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -48,7 +51,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "LandingPage",
-  components: { NavigationMenu, ThemeToggle, ImageCarousel },
+  components: { NavigationMenu, ThemeToggle, ImageCarousel, Footer },
   data() {
     return {
       features: [
@@ -139,8 +142,14 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   margin: 0.5rem;
+
 }
 
+.hero__cta:hover {
+  border:none;
+  box-shadow: inset 0 0 0 1px rgba(255, 115, 0, 0.8);
+  color:rgba(255, 115, 0, 0.8);
+}
 
 .hero__image {
   max-width: 100%;

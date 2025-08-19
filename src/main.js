@@ -9,8 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faArrowRight, faBars,faChevronUp, faChevronDown)
+library.add(faArrowRight, faBars,faChevronUp, faChevronDown, faFacebook, faTwitter, faInstagram)
 
 
 const app = createApp(App)
