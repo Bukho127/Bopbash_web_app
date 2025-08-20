@@ -10,8 +10,11 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import {faAngleRight} from '@fortawesome/free-solid-svg-icons'
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faArrowRight, faBars,faChevronUp, faChevronDown, faFacebook, faTwitter, faInstagram)
+
+library.add(faArrowRight, faBars,faChevronUp, faChevronDown, faFacebook, faTwitter, faInstagram, faAngleRight, faAngleDown)
 
 
 const app = createApp(App)

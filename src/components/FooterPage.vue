@@ -9,15 +9,15 @@
       <div class="social-links">
         <a href="https://facebook.com" target="_blank" aria-label="Facebook">
           <font-awesome-icon :icon="['fab', 'facebook']" />
-          Facebook
+         
         </a>
         <a href="https://twitter.com" target="_blank" aria-label="Twitter">
           <font-awesome-icon :icon="['fab', 'twitter']" />
-          Twitter
+          
         </a>
         <a href="https://instagram.com" target="_blank" aria-label="Instagram">
           <font-awesome-icon :icon="['fab', 'instagram']" />
-          Instagram
+        
         </a>
       </div>
       
@@ -77,5 +77,16 @@ hr{
 
 .social-links a:hover {
   color:rgb(255, 115, 0);
+}
+
+@media screen and  (max-width: 768px){
+hr {
+  margin-bottom: 1rem;
+  width: 90%;
+}
+p{
+  text-align: left;
+  margin: 2rem 1.5rem 3rem 1rem;
+}
 }
 </style>

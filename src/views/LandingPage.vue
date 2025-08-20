@@ -151,19 +151,33 @@ export default {
   color:rgba(255, 115, 0, 0.8);
 }
 
-.hero__image {
-  max-width: 100%;
+.hero__image{
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.hero__image img {
+  max-width: 1200px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
-  padding: 0; /* center image under text */
+  padding: 0; 
 }
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 1rem;
   }
   .hero__image {
-    max-width: 50%;      /* scale down on mobile */
+    width: 100%;
+    max-width: 800px;      /* scale down on mobile */
     margin-top: 1.5rem;
+  }
+
+  .hero__cta{
+    width: 90%;
+    margin: 0.5rem 0;
+    height: 4.5rem;
+
   }
 
 }

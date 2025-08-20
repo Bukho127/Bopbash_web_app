@@ -2,54 +2,81 @@
   <section class="pre-footer">
     <div class="container">
       <div class="columns">
-        <!-- Product -->
-        <div class="column">
-          <h3>Product</h3>
-          <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Integrations</a></li>
-            <li><a href="#">Demo</a></li>
-          </ul>
+
+        <div
+          class="column"
+          v-for="(section, i) in sections"
+          :key="i"
+        >
+          <h3 @click="toggle(i)" class="accordion-title">
+            {{ section.title }}
+            <!-- arrow indicator -->
+            <span class="arrow" v-if="isMobile">
+               <FontAwesomeIcon :icon="isOpen(i) ? 'angle-down' : 'angle-right'" />
+            </span>
+          </h3>
+
+          <!-- Accordion body -->
+          <transition name="accordion">
+            <ul v-show="!isMobile || isOpen(i)">
+              <li v-for="link in section.links" :key="link">
+                <a href="#">{{ link }}</a>
+              </li>
+            </ul>
+          </transition>
         </div>
 
-        <!-- Solutions -->
-        <div class="column">
-          <h3>Solutions</h3>
-          <ul>
-            <li><a href="#">For Teams</a></li>
-            <li><a href="#">For Enterprises</a></li>
-            <li><a href="#">For Developers</a></li>
-            <li><a href="#">Case Studies</a></li>
-          </ul>
-        </div>
-
-        <!-- Company -->
-        <div class="column">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 export default {
-  name: "PreFooter"
-}
+  name: "PreFooter",
+  components:{FontAwesomeIcon},
+  data() {
+    return {
+      openIndex: null, // which section is open
+      isMobile: false,
+      sections: [
+        { title: "Product", links: ["Features", "Pricing", "Integrations", "Demo"] },
+        { title: "Solutions", links: ["For Teams", "For Enterprises", "For Developers", "Case Studies"] },
+        { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] }
+      ]
+    };
+  },
+  mounted() {
+    this.checkScreen();
+    window.addEventListener("resize", this.checkScreen);
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.checkScreen);
+  },
+  methods: {
+    checkScreen() {
+      this.isMobile = window.innerWidth <= 768;
+      if (!this.isMobile) {
+        this.openIndex = null; // reset when desktop
+      }
+    },
+    toggle(i) {
+      if (!this.isMobile) return;
+      this.openIndex = this.openIndex === i ? null : i;
+    },
+    isOpen(i) {
+      return this.openIndex === i;
+    }
+  }
+};
 </script>
 
 <style scoped>
 .pre-footer {
   background: var(--background-color);
   padding: 3rem 1rem;
-  
 }
 
 .container {
@@ -60,13 +87,19 @@ export default {
 .columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 3rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .column h3 {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  color:gray;
+  color: #cacaca;
 }
 
 .column ul {
@@ -76,19 +109,55 @@ export default {
 }
 
 .column li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .column a {
-  color: gray;
+  color: #b0b0b0;
   text-decoration: none;
+  transition: color 0.2s;
 }
-
 .column a:hover {
   color: #000;
 }
 
-li{
-    padding: 20px;
+/* Mobile accordion styles */
+@media screen and (max-width: 768px) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .accordion-title {
+    font-size: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .column ul {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Smooth collapse animation */
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: all 0.3s ease;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.accordion-enter-to,
+.accordion-leave-from {
+  max-height: 500px;
+  opacity: 1;
 }
 </style>
