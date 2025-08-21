@@ -35,6 +35,7 @@
     <section class="carousel-section">
       <ImageCarousel :slides="carouselSlides" />
     </section>
+    <SubscriptionPlans/>
     <Footer/>
   </div>
 </template>
@@ -44,14 +45,16 @@ import NavigationMenu from "../components/NavigationMenu.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
 import ImageCarousel from "../components/ImageCarousel.vue";
 import Footer from '../components/FooterPage.vue';
+import SubscriptionPlans from '../components/SubscriptionPlans.vue';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Subscription from './Subscription.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "LandingPage",
-  components: { NavigationMenu, ThemeToggle, ImageCarousel, Footer },
+  components: { NavigationMenu, ThemeToggle, ImageCarousel, Footer, SubscriptionPlans },
   data() {
     return {
       features: [
