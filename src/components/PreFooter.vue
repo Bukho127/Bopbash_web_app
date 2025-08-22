@@ -8,13 +8,13 @@
           v-for="(section, i) in sections"
           :key="i"
         >
-          <h3 @click="toggle(i)" class="accordion-title">
+          <h4 @click="toggle(i)" class="accordion-title">
             {{ section.title }}
             <!-- arrow indicator -->
             <span class="arrow" v-if="isMobile">
                <FontAwesomeIcon :icon="isOpen(i) ? 'angle-down' : 'angle-right'" />
             </span>
-          </h3>
+          </h4>
 
           <!-- Accordion body -->
           <transition name="accordion">
@@ -96,7 +96,7 @@ export default {
   text-align: left;
 }
 
-.column h3 {
+.column h4 {
   font-size: 1.1rem;
   margin-bottom: 1rem;
   color: #cacaca;
@@ -129,10 +129,9 @@ export default {
   }
 
   .accordion-title {
-    font-size: 1px;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,9 +1,7 @@
 <template>
   <div class="landing-page">
     <NavigationMenu />
-    <ThemeToggle />
-   
-
+  
     <section class="hero">
       <h1 class="hero__title">Turn Social Data Into Smarter Decisions</h1>
       <p class="hero__subtitle">
@@ -35,6 +33,7 @@
     <section class="carousel-section">
       <ImageCarousel :slides="carouselSlides" />
     </section>
+    <Testimonial />
     <SubscriptionPlans/>
     <Footer/>
   </div>
@@ -42,19 +41,20 @@
 
 <script>
 import NavigationMenu from "../components/NavigationMenu.vue";
-import ThemeToggle from "../components/ThemeToggle.vue";
+
 import ImageCarousel from "../components/ImageCarousel.vue";
 import Footer from '../components/FooterPage.vue';
 import SubscriptionPlans from '../components/SubscriptionPlans.vue';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Subscription from './Subscription.vue';
+import Testimonial from '../components/Testimonial.vue';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "LandingPage",
-  components: { NavigationMenu, ThemeToggle, ImageCarousel, Footer, SubscriptionPlans },
+  components: { NavigationMenu, ImageCarousel, Footer, SubscriptionPlans, Testimonial },
   data() {
     return {
       features: [

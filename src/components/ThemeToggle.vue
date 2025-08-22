@@ -1,7 +1,9 @@
 <template>
-<button @click="toggleTheme">
-  <i :class="theme === 'light' ? 'fas fa-sun' : 'fas fa-moon'"></i>
-</button>
+  <button class="theme-toggle" :class="{ active: theme === 'dark' }" @click="toggleTheme">
+    <div class="switch">
+      <i class="fas" :class="theme === 'light' ? 'fa-sun' : 'fa-moon'"></i>
+    </div>
+  </button>
 </template>
 
 <script>
@@ -25,20 +27,46 @@ export default {
 
 <style scoped>
 .theme-toggle {
-  background:var(--primary-color);
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-button{
-  position: fixed;
-  top: 7rem;
-  right: 1rem;
-  z-index: 1000;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
   background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 1rem 4rem;
-  size: 2rem;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: border 0.3s, background-color 0.3s;
+}
+
+.theme-toggle.active {
+  border-color: orange;
+}
+
+.switch {
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle.active .switch {
+  transform: translateX(30px);
+}
+
+.switch i {
+  color: #f39c12;
+  font-size: 14px;
+  transition: transform 0.3s ease, color 0.3s;
+}
+
+.theme-toggle.active .switch i {
+  color: #fff;
+  transform: rotate(360deg);
 }
 </style>

@@ -53,13 +53,18 @@
           <a href="/login" role="menuitem">GET STARTED</a>
         </li>
       </ul>
+      <ThemeToggle />
     </div>
   </nav>
 </template>
 
 <script>
+import ThemeToggle from "./ThemeToggle.vue";
 export default {
   name: "NavigationMenu",
+  components: {
+    ThemeToggle,
+  },
   data() {
     return {
       isOpen: false,
@@ -209,5 +214,11 @@ export default {
   .dropdown__menu li {
     padding: 0.5rem 0;
   }
+}
+.nav__right {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1.5rem; /* adds consistent space between children */
 }
 </style>
