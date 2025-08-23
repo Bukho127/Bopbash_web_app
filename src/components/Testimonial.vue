@@ -26,12 +26,12 @@ export default {
     return {
       testimonials: [
         {
-          text: "This product changed my life!",
+          text: "I was able to streamline my social media strategy with Bopdash.",
           author: "Alice",
           image: "https://randomuser.me/api/portraits/women/68.jpg",
         },
         {
-          text: "Amazing experience, highly recommend.",
+          text: "My business is up and running. You are amazing at what you do.",
           author: "Bob",
           image: "https://randomuser.me/api/portraits/men/75.jpg",
         },
@@ -41,7 +41,7 @@ export default {
           image: "https://randomuser.me/api/portraits/men/32.jpg",
         },
         {
-          text: "Intuitive and easy to use.",
+          text: "Your support is appreciated, I was able to scale through you.",
           author: "Diana",
           image: "https://randomuser.me/api/portraits/women/44.jpg",
         },

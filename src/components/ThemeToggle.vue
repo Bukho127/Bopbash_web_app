@@ -66,7 +66,7 @@ export default {
 }
 
 .theme-toggle.active .switch i {
-  color: #fff;
+  color:black;
   transform: rotate(360deg);
 }
 </style>
