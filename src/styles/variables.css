@@ -11,3 +11,10 @@
   --text-color: #f9fafb;
   --primary-color: #6366f1;
 }
+
+
+[data-theme="light"] {
+  --background-color: #ffffff; 
+  --text-color:black;       
+  --primary-color: #6366f1;    
+}

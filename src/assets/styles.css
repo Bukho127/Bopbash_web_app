@@ -9,23 +9,37 @@
   --border-radius: 8px;
 }
 
+
 [data-theme="dark"] {
   --background-color: #1f2937;
   --text-color: #f9fafb;
   --primary-color: #6366f1;
+}
+[data-theme="light"] {
+  --background-color: #ffffff; 
+  --text-color:black;       
+  --primary-color: #6366f1;    
 }
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: radial-gradient(circle, #4f46e5, #f59e0b);
-  color: var(--text-color);
+  color: black;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);   /* 👈 now text color follows the theme */
+}
+
 
 .u-mb-16 { margin-bottom: 16px; }
 .u-mt-16 { margin-top: 16px; }
+
+
+

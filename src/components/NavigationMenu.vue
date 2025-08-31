@@ -8,18 +8,14 @@
         <font-awesome-icon icon="bars" />
       </button>
       <ul :class="['nav__list', { 'nav__list--open': isOpen }]" role="menubar">
-          <li class="nav__item nav__close-btn">
-    <button @click="toggleMenu" aria-label="Close menu">
-      &times; 
-    </button>
-  </li>
+        <li class="nav__item nav__close-btn">
+          <button @click="toggleMenu" aria-label="Close menu">&times;</button>
+        </li>
 
-  <li class="nav__item" role="none">
-    <a href="/" role="menuitem">Home</a>
-  </li>
         <li class="nav__item" role="none">
           <a href="/" role="menuitem">Home</a>
         </li>
+
         <li class="nav__item nav__dropdown" role="none">
           <button
             class="dropdown__toggle"
@@ -92,9 +88,9 @@ export default {
 </script>
 
 <style scoped>
-  .nav__close-btn {
-    display: none;
-  }
+.nav__close-btn {
+  display: none;
+}
 .logo {
   height: 30px;
   width: auto;
@@ -129,7 +125,6 @@ export default {
   align-items: center;
   list-style: none;
   margin-left: auto;
-
 }
 
 .nav__auth {
@@ -139,7 +134,7 @@ export default {
   color: white;
   font-size: small;
   font-weight: 600;
-  transition: 0.5s  ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 .nav__auth:hover {
   background-color: rgb(255, 115, 0);
@@ -199,23 +194,22 @@ export default {
     display: block;
   }
 
-.nav__list {
-  position: fixed;
-  right: 0;
-  top: -1rem;
-  display: none;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 1.5rem;
-  background-color: var(--background-color, #1f2937);
-  height: 100vh;
-  width: min(15em, 100%);
-  z-index: 1000;
-  align-items: flex-start;  
-  text-align: left;        
-
-}
- .nav__close-btn {
+  .nav__list {
+    position: fixed;
+    right: 0;
+    top: -1rem;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    background-color: var(--background-color, #1f2937);
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index: 1000;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .nav__close-btn {
     width: 100%;
     display: flex;
     margin-bottom: 1rem;
@@ -231,7 +225,6 @@ export default {
     line-height: 1;
   }
 
-
   .nav__list.nav__list--open {
     display: flex;
   }
@@ -246,13 +239,11 @@ export default {
   .dropdown__menu li {
     padding: 0.5rem 0;
   }
-
-  
 }
 .nav__right {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  gap: 1.5rem; 
+  gap: 1.5rem;
 }
 </style>

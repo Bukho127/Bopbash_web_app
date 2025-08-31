@@ -1,12 +1,12 @@
 <template>
   <div>
     <NavigationMenu />
-    <ThemeToggle />
+    
     <h1>Profile Settings</h1>
     <form @submit.prevent="updateProfile">
       <input type="text" v-model="name" placeholder="Name" />
       <input type="email" v-model="email" placeholder="Email" />
-      <ThemeToggle /> <!-- Reuse component for theme -->
+
       <button type="submit">Save</button>
     </form>
   </div>

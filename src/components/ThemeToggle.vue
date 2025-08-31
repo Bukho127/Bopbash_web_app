@@ -60,7 +60,7 @@ export default {
 }
 
 .switch i {
-  color: #f39c12;
+  color: var(--switch-icon-color); /* dynamic based on theme */
   font-size: 14px;
   transition: transform 0.3s ease, color 0.3s;
 }
