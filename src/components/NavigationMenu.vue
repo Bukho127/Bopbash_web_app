@@ -8,6 +8,15 @@
         <font-awesome-icon icon="bars" />
       </button>
       <ul :class="['nav__list', { 'nav__list--open': isOpen }]" role="menubar">
+          <li class="nav__item nav__close-btn">
+    <button @click="toggleMenu" aria-label="Close menu">
+      &times; 
+    </button>
+  </li>
+
+  <li class="nav__item" role="none">
+    <a href="/" role="menuitem">Home</a>
+  </li>
         <li class="nav__item" role="none">
           <a href="/" role="menuitem">Home</a>
         </li>
@@ -83,6 +92,9 @@ export default {
 </script>
 
 <style scoped>
+  .nav__close-btn {
+    display: none;
+  }
 .logo {
   height: 30px;
   width: auto;
@@ -117,6 +129,7 @@ export default {
   align-items: center;
   list-style: none;
   margin-left: auto;
+
 }
 
 .nav__auth {
@@ -186,19 +199,38 @@ export default {
     display: block;
   }
 
-  .nav__list {
-    position: fixed;
-    right: 0;
-    top: 0;
-    display: none;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem 3rem;
-    background-color: var(--background-color, #1f2937);
-    height: 100vh;
+.nav__list {
+  position: fixed;
+  right: 0;
+  top: -1rem;
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  background-color: var(--background-color, #1f2937);
+  height: 100vh;
+  width: min(15em, 100%);
+  z-index: 1000;
+  align-items: flex-start;  
+  text-align: left;        
+
+}
+ .nav__close-btn {
     width: 100%;
-    z-index: 1000;
+    display: flex;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
   }
+
+  .nav__close-btn button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
 
   .nav__list.nav__list--open {
     display: flex;
@@ -214,11 +246,13 @@ export default {
   .dropdown__menu li {
     padding: 0.5rem 0;
   }
+
+  
 }
 .nav__right {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  gap: 1.5rem; /* adds consistent space between children */
+  gap: 1.5rem; 
 }
 </style>
