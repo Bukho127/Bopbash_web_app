@@ -98,11 +98,13 @@ export default {
 }
 
 .nav {
+  position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   color: white;
+  z-index: 1000;
 }
 
 .nav__right {

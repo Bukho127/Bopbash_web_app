@@ -1,15 +1,22 @@
 <template>
-  <div class="carousel">
-    <div class="carousel-inner">
-     <div 
-  v-for="(slide, index) in slides" 
-  :key="index"
-  class="carousel-item"
-  :class="{ active: index === currentIndex }"
->
-  <img :src="slide.image" :alt="slide.caption" />
-</div>
-
+  <div class="text-contaner">
+    <h1>Plan, schedule, and optimize your social media content effortlessly.</h1>
+    <p>Manage multiple social media accounts, schedule posts, and analyze performance all in one place.</p>
+    <div class="percentContainer">
+      <span>35%</span>
+      <p class="text"> managing social media campaigns with Bopbash</p>
+    </div>
+    
+  </div>
+  <div class="carousel" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+    <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+      <div 
+        v-for="(slide, index) in displayedSlides" 
+        :key="index"
+        class="carousel-item"
+      >
+        <img :src="slide.image" :alt="slide.caption" />
+      </div>
     </div>
 
     <button class="carousel-btn prev" @click="prevSlide">&lt;</button>
@@ -19,7 +26,7 @@
 
 <script>
 export default {
-  name: "ImageCarousel",
+  name: "ThreeImageCarousel",
   props: {
     slides: {
       type: Array,
@@ -27,7 +34,7 @@ export default {
     },
     autoplay: {
       type: Boolean,
-      default: false
+      default: true
     },
     interval: {
       type: Number,
@@ -40,8 +47,14 @@ export default {
       timer: null
     };
   },
+  computed: {
+    displayedSlides() {
+      // only use first 3 slides
+      return this.slides.slice(0, 5);
+    }
+  },
   mounted() {
-    if (this.autoplay && this.slides.length) {
+    if (this.autoplay && this.displayedSlides.length) {
       this.startAutoplay();
     }
   },
@@ -50,25 +63,27 @@ export default {
   },
   methods: {
     nextSlide() {
-      if (!this.slides || !this.slides.length) return;
-      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+      this.currentIndex = (this.currentIndex + 1) % this.displayedSlides.length;
     },
     prevSlide() {
-      if (!this.slides || !this.slides.length) return;
-      this.currentIndex =
-        (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      this.currentIndex = (this.currentIndex - 1 + this.displayedSlides.length) % this.displayedSlides.length;
     },
     startAutoplay() {
-      this.timer = setInterval(() => {
-        this.nextSlide();
-      }, this.interval);
+      if (this.autoplay && this.displayedSlides.length > 1) {
+        this.stopAutoplay();
+        this.timer = setInterval(this.nextSlide, this.interval);
+      }
     },
     stopAutoplay() {
-      if (this.timer) clearInterval(this.timer);
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
     }
   }
 };
 </script>
+
 <style scoped>
 .carousel {
   position: relative;
@@ -85,25 +100,17 @@ export default {
 
 .carousel-item {
   min-width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.carousel-item.active {
-  opacity: 1;
-  position: relative;
+  flex-shrink: 0;
 }
 
 .carousel img {
-  width: 100%;       /* make it fit the width of container */
-  height: auto;      /* keep aspect ratio */
+  width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover; /* scale & crop if needed */
-  max-height: 400px; /* optional, limits very tall images */
+  object-fit: cover;
+  max-height: 400px;
 }
+
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -117,11 +124,43 @@ export default {
   z-index: 10;
 }
 
-.carousel-btn.prev {
-  left: 10px;
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+
+.text-contaner {
+  max-width: 32rem;
+  margin: 2rem auto;
 }
 
-.carousel-btn.next {
-  right: 10px;
+p{
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+span{
+  color: orange;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+h1{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.percentContainer{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+.percentContainer{
+  flex-direction: column;
+  }
+
+  .text{
+    display: none;
+  }
 }
 </style>
