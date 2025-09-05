@@ -1,26 +1,28 @@
 <template>
-  <div class="text-contaner">
-    <h1>Plan, schedule, and optimize your social media content effortlessly.</h1>
-    <p>Manage multiple social media accounts, schedule posts, and analyze performance all in one place.</p>
-    <div class="percentContainer">
-      <span>35%</span>
-      <p class="text"> managing social media campaigns with Bopbash</p>
-    </div>
-    
-  </div>
-  <div class="carousel" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
-    <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-      <div 
-        v-for="(slide, index) in displayedSlides" 
-        :key="index"
-        class="carousel-item"
-      >
-        <img :src="slide.image" :alt="slide.caption" />
-      </div>
+  <div class="content-container">
+    <div class="text-content">
+      <h1>Plan, schedule, and optimize your social media content effortlessly.</h1>
+      <p>Manage multiple social media accounts, schedule posts, and analyze performance all in one place.</p>
+      <div class="percentContainer">
+        <span>35%</span>
+        <p class="text"> managing social media campaigns with Bopbash</p>
+      </div>    
     </div>
 
-    <button class="carousel-btn prev" @click="prevSlide">&lt;</button>
-    <button class="carousel-btn next" @click="nextSlide">&gt;</button>
+    <div class="carousel" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+      <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+        <div 
+          v-for="(slide, index) in displayedSlides" 
+          :key="index"
+          class="carousel-item"
+        >
+          <img :src="slide.image" :alt="slide.caption" />
+        </div>
+      </div>
+
+      <button class="carousel-btn prev" @click="prevSlide" aria-label="Previous slide">&lt;</button>
+      <button class="carousel-btn next" @click="nextSlide" aria-label="Next slide">&gt;</button>
+    </div>
   </div>
 </template>
 
@@ -39,6 +41,10 @@ export default {
     interval: {
       type: Number,
       default: 3000
+    },
+    maxSlides: {
+      type: Number,
+      default: 3
     }
   },
   data() {
@@ -49,8 +55,7 @@ export default {
   },
   computed: {
     displayedSlides() {
-      // only use first 3 slides
-      return this.slides.slice(0, 5);
+      return this.slides.slice(0, this.maxSlides);
     }
   },
   mounted() {
@@ -85,11 +90,46 @@ export default {
 </script>
 
 <style scoped>
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.text-content {
+  max-width: 32rem;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-content span {
+  color: orange;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.text-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.percentContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  margin: auto;
   overflow: hidden;
 }
 
@@ -105,10 +145,10 @@ export default {
 
 .carousel img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 400px;
   object-fit: cover;
-  max-height: 400px;
+  display: block;
+  border-radius: 12px;
 }
 
 .carousel-btn {
@@ -116,6 +156,7 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.4);
+  border-radius: 50%;
   border: none;
   color: white;
   font-size: 2rem;
@@ -127,39 +168,17 @@ export default {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-
-.text-contaner {
-  max-width: 32rem;
-  margin: 2rem auto;
-}
-
-p{
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-span{
-  color: orange;
-  font-weight: bold;
-  font-size: 3rem;
-}
-
-h1{
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.percentContainer{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 2rem;
-}
-
 @media (max-width: 768px) {
-.percentContainer{
-  flex-direction: column;
+  .content-container {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .text{
+  .percentContainer {
+    flex-direction: column;
+  }
+
+  .text {
     display: none;
   }
 }

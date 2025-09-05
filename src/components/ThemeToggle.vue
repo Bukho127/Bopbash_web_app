@@ -1,5 +1,9 @@
 <template>
-  <button class="theme-toggle" :class="{ active: theme === 'dark' }" @click="toggleTheme">
+  <button
+    class="theme-toggle"
+    :class="{ active: theme === 'dark' }"
+    @click="toggleTheme"
+  >
     <div class="switch">
       <i class="fas" :class="theme === 'light' ? 'fa-sun' : 'fa-moon'"></i>
     </div>
@@ -10,18 +14,18 @@
 export default {
   name: "ThemeToggle",
   data() {
-    return { theme: localStorage.getItem('theme') || 'light' };
+    return { theme: localStorage.getItem("theme") || "light" };
   },
   mounted() {
-    document.documentElement.setAttribute('data-theme', this.theme);
+    document.documentElement.setAttribute("data-theme", this.theme);
   },
   methods: {
     toggleTheme() {
-      this.theme = this.theme === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', this.theme);
-      localStorage.setItem('theme', this.theme);
-    }
-  }
+      this.theme = this.theme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", this.theme);
+      localStorage.setItem("theme", this.theme);
+    },
+  },
 };
 </script>
 
@@ -60,13 +64,13 @@ export default {
 }
 
 .switch i {
-  color: var(--switch-icon-color); /* dynamic based on theme */
+  color: var(--switch-icon-color);
   font-size: 14px;
   transition: transform 0.3s ease, color 0.3s;
 }
 
 .theme-toggle.active .switch i {
-  color:black;
+  color: black;
   transform: rotate(360deg);
 }
 </style>

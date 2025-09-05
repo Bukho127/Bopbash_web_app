@@ -2,21 +2,17 @@
   <section class="pre-footer">
     <div class="container">
       <div class="columns">
-
-        <div
-          class="column"
-          v-for="(section, i) in sections"
-          :key="i"
-        >
+        <div class="column" v-for="(section, i) in sections" :key="i">
           <h4 @click="toggle(i)" class="accordion-title">
             {{ section.title }}
-            <!-- arrow indicator -->
+
             <span class="arrow" v-if="isMobile">
-               <FontAwesomeIcon :icon="isOpen(i) ? 'angle-down' : 'angle-right'" />
+              <FontAwesomeIcon
+                :icon="isOpen(i) ? 'angle-down' : 'angle-right'"
+              />
             </span>
           </h4>
 
-          <!-- Accordion body -->
           <transition name="accordion">
             <ul v-show="!isMobile || isOpen(i)">
               <li v-for="link in section.links" :key="link">
@@ -25,27 +21,37 @@
             </ul>
           </transition>
         </div>
-
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "PreFooter",
-  components:{FontAwesomeIcon},
+  components: { FontAwesomeIcon },
   data() {
     return {
-      openIndex: null, // which section is open
+      openIndex: null,
       isMobile: false,
       sections: [
-        { title: "Product", links: ["Features", "Pricing", "Integrations", "Demo"] },
-        { title: "Solutions", links: ["For Teams", "For Enterprises", "For Developers", "Case Studies"] },
-        { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] }
-      ]
+        {
+          title: "Product",
+          links: ["Features", "Pricing", "Integrations", "Demo"],
+        },
+        {
+          title: "Solutions",
+          links: [
+            "For Teams",
+            "For Enterprises",
+            "For Developers",
+            "Case Studies",
+          ],
+        },
+        { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] },
+      ],
     };
   },
   mounted() {
@@ -59,7 +65,7 @@ export default {
     checkScreen() {
       this.isMobile = window.innerWidth <= 768;
       if (!this.isMobile) {
-        this.openIndex = null; // reset when desktop
+        this.openIndex = null;
       }
     },
     toggle(i) {
@@ -68,8 +74,8 @@ export default {
     },
     isOpen(i) {
       return this.openIndex === i;
-    }
-  }
+    },
+  },
 };
 </script>
 

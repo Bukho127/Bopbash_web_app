@@ -1,6 +1,6 @@
 # saas_app
 
-A modern, responsive SaaS web application built with **Vue 3**. This project features interactive carousels, smooth animations, and scalable UI components.
+A modern, responsive SaaS web application built with **Vue 3**. This project features interactive carousels, smooth animations, and scalable UI components. Note: The accordion functionality is applied to the footer, only when viewed on mobile screens
 
 ---
 
@@ -34,11 +34,11 @@ This project structure allows for easy scaling and customization for SaaS produc
 
 ## Features
 
-- Responsive layout for mobile, tablet, and desktop  
+- Responsive layout for mobile, tablet, and desktop navigation menu  
 - Multi-slide carousels with navigation and pagination  
 - Smooth animations via GSAP  
 - Theme Toggle
-- Pagination  
+- Accordion
 
 ---
 
@@ -53,18 +53,10 @@ This project structure allows for easy scaling and customization for SaaS produc
 
 ---
 
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/saas_app.git
-cd saas_app
-
 
 ## Project setup
 ```
-npm install
+npm install  // to install dependencies
 ```
 
 ### Compiles and hot-reloads for development
@@ -77,10 +69,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -72,7 +72,7 @@ export default {
 }
 
 .testimonial-card {
-  background:var(--background-color);
+  background: var(--background-color);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   max-width: 280px;
@@ -100,7 +100,7 @@ export default {
 .testimonial-text {
   font-size: 1rem;
   line-height: 1.5;
-  color:white;
+  color: white;
   margin-bottom: 1rem;
 }
 

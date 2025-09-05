@@ -120,7 +120,10 @@ export default {
   font-size: 1.5rem;
   color: white;
 }
-
+li a:hover {
+  color: orange;
+  transition: 0.8ms ease-in-out;
+}
 .nav__list {
   display: flex;
   gap: 1.5rem;
@@ -142,7 +145,7 @@ export default {
   background-color: rgb(255, 115, 0);
   color: white;
 }
-/* Dropdown */
+
 .nav__dropdown {
   position: relative;
 }
@@ -190,7 +193,6 @@ export default {
   background: rgba(255, 115, 0, 0.8);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .nav__toggle {
     display: block;

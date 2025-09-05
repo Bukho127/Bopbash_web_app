@@ -1,16 +1,10 @@
 <template>
   <section class="scroll-carousel">
     <div class="scroll-wrapper" ref="carousel" v-if="!isMobile">
-      <div
-        class="scroll-item"
-        v-for="(img, i) in images"
-        :key="i"
-      >
+      <div class="scroll-item" v-for="(img, i) in images" :key="i">
         <img :src="img" alt="carousel image" />
       </div>
     </div>
-
-    <!-- Mobile: single static image -->
     <div v-else class="mobile-image">
       <img :src="images[0]" alt="carousel image" />
     </div>
@@ -27,7 +21,7 @@ const currentIndex = ref(0);
 const images = [
   "/images/Group 1.png",
   "/images/Group 2.png",
-  "/images/Group 3.png"
+  "/images/Group 3.png",
 ];
 
 let isAnimating = false;
@@ -52,21 +46,21 @@ function goToSlide(index) {
     onComplete: () => {
       isAnimating = false;
       currentIndex.value = index;
-    }
+    },
   });
 }
 
 function handleWheel(e) {
   if (isAnimating || isMobile.value) {
-    e.preventDefault(); 
+    e.preventDefault();
     return;
   }
 
   // scrolling down
   if (e.deltaY > 0 && currentIndex.value < images.length - 1) {
-    e.preventDefault(); 
+    e.preventDefault();
     goToSlide(currentIndex.value + 1);
-  } 
+  }
   // scrolling up
   else if (e.deltaY < 0 && currentIndex.value > 0) {
     e.preventDefault();

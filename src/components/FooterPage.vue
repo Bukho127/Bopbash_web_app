@@ -1,52 +1,50 @@
 <template>
   <footer class="footer">
-    <hr>
+    <hr />
     <PreFooter />
-    <hr>
+    <hr />
     <div class="footer-content">
-
-      <p>&copy; {{ currentYear }} BOPBASH, a Spana Technologies company. All rights reserved.</p>
+      <p>
+        &copy; {{ currentYear }} BOPBASH, a Spana Technologies company. All
+        rights reserved.
+      </p>
       <div class="social-links">
         <a href="https://facebook.com" target="_blank" aria-label="Facebook">
           <font-awesome-icon :icon="['fab', 'facebook']" />
-         
         </a>
         <a href="https://twitter.com" target="_blank" aria-label="Twitter">
           <font-awesome-icon :icon="['fab', 'twitter']" />
-          
         </a>
         <a href="https://instagram.com" target="_blank" aria-label="Instagram">
           <font-awesome-icon :icon="['fab', 'instagram']" />
-        
         </a>
       </div>
-      
     </div>
   </footer>
 </template>
 
 <script>
-import PreFooter from '../components/PreFooter.vue';
+import PreFooter from "../components/PreFooter.vue";
 
 export default {
   name: "FooterPage",
   components: { PreFooter },
   data() {
     return {
-      currentYear: new Date().getFullYear()
-    }
-  }
-}
+      currentYear: new Date().getFullYear(),
+    };
+  },
+};
 </script>
 
 
 <style scoped>
-hr{
+hr {
   margin-bottom: 3rem;
   width: 80%;
   height: 0.1px;
   border: none;
-  background-color:#465b78;
+  background-color: #465b78;
 }
 .footer {
   margin-top: 2rem;
@@ -76,17 +74,17 @@ hr{
 }
 
 .social-links a:hover {
-  color:rgb(255, 115, 0);
+  color: rgb(255, 115, 0);
 }
 
-@media screen and  (max-width: 768px){
-hr {
-  margin-bottom: 1rem;
-  width: 90%;
-}
-p{
-  text-align: left;
-  margin: 2rem 1.5rem 3rem 1rem;
-}
+@media screen and (max-width: 768px) {
+  hr {
+    margin-bottom: 1rem;
+    width: 90%;
+  }
+  p {
+    text-align: left;
+    margin: 2rem 1.5rem 3rem 1rem;
+  }
 }
 </style>

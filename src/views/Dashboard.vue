@@ -9,9 +9,9 @@
 
     <section class="dashboard-section">
       <h2>Data Table</h2>
-      <DataTable 
-        :data="tableData" 
-        :columns="tableColumns" 
+      <DataTable
+        :data="tableData"
+        :columns="tableColumns"
         @row-click="handleRowClick"
       />
 
@@ -65,10 +65,42 @@ export default {
         { label: "Role", key: "role" },
       ],
       tableData: [
-        { id: 1, name: "Alice", role: "Admin", department: "Finance", salary: 70000, depreciation: 5, status: "Active" },
-        { id: 2, name: "Bob", role: "Editor", department: "Marketing", salary: 55000, depreciation: 7, status: "On Leave" },
-        { id: 3, name: "Charlie", role: "Viewer", department: "Support", salary: 45000, depreciation: 10, status: "Active" },
-        { id: 4, name: "Diana", role: "Manager", department: "Operations", salary: 80000, depreciation: 3, status: "Active" },
+        {
+          id: 1,
+          name: "Alice",
+          role: "Admin",
+          department: "Finance",
+          salary: 70000,
+          depreciation: 5,
+          status: "Active",
+        },
+        {
+          id: 2,
+          name: "Bob",
+          role: "Editor",
+          department: "Marketing",
+          salary: 55000,
+          depreciation: 7,
+          status: "On Leave",
+        },
+        {
+          id: 3,
+          name: "Charlie",
+          role: "Viewer",
+          department: "Support",
+          salary: 45000,
+          depreciation: 10,
+          status: "Active",
+        },
+        {
+          id: 4,
+          name: "Diana",
+          role: "Manager",
+          department: "Operations",
+          salary: 80000,
+          depreciation: 3,
+          status: "Active",
+        },
       ],
       selectedRow: null,
     };
@@ -92,6 +124,6 @@ export default {
   border-radius: 10px;
   background: var(--background-color);
   color: var(--text-color);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 </style>

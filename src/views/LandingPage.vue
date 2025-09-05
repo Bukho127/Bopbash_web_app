@@ -36,7 +36,7 @@
     <section class="carousel-section">
       <ImageCarousel :slides="carouselSlides" />
     </section>
-     <CallToActionBar />
+    <CallToActionBar />
     <Testimonial />
     <SubscriptionPlans />
     <Footer />
@@ -48,7 +48,6 @@ import NavigationMenu from "../components/NavigationMenu.vue";
 import ImageCarousel from "../components/ImageCarousel.vue";
 import Footer from "../components/FooterPage.vue";
 import CallToActionBar from "@/components/CallToActionBar.vue";
-import SubscriptionPlans from "../components/SubscriptionPlans.vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Testimonial from "../components/Testimonial.vue";
@@ -68,7 +67,6 @@ export default {
     NavigationMenu,
     ImageCarousel,
     Footer,
-    SubscriptionPlans,
     Testimonial,
     FontAwesomeIcon,
     CallToActionBar,
@@ -216,5 +214,11 @@ export default {
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .hero__cta {
+    width: 100%;
+  }
 }
 </style>

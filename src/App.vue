@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <router-view />
-    <!-- Optional global components (like NavigationMenu or ThemeToggle) 
-         can be placed here if you want them on every page -->
     
   </div>
 </template>
@@ -14,7 +12,7 @@ export default {
 </script>
 
 <style>
-/* Global styles that apply to the whole app */
+
 #app {
   min-height: 100vh;
   background-color: var(--background-color);
